@@ -1,0 +1,28 @@
+define([], function() {
+  return {
+    "PropertyPaneDescription": "Description",
+    "BasicGroupName": "Group Name",
+    "DescriptionFieldLabel": "Description Field",
+    "LoadingLabel":"extensions",
+    "UnknowScopeLabel": "Unknown",
+    "SiteScopeLabel": "Site",
+    "WebScopeLabel": "Web",
+    "ListScopeLabel": "List",
+    "NAScopeLabel": "N/A",
+    "NoneRegistrationTypeLabel": "None",
+    "ListRegistrationTypeLabel":"List",
+    "ContentTypeRegistrationTypeLabel":"ContentType",
+    "ProgIdRegistrationTypeLabel":"ProgId",
+    "FileTypeRegistrationTypeLabel":"FileType",
+    "NARegistrationTypeLabel":"N/A",
+    "ScopeHeader": "Scope",
+    "TitleHeader": "Title",
+    "RegistrationTypeHeader": "Registration Type",
+    "LocationHeader": "Location",
+    "ApplicationCustomizerLocation": "Application Customizer",
+    "CommandBarLocation": "Command Bar",
+    "ContextMenuLocation": "Context Menu",
+    "ListViewLocation": "Command Bar/Context Menu",
+    "ECBLocation": "Edit Control Block",
+  }
+});

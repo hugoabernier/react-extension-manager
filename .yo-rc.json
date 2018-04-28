@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.4.1",
+    "libraryName": "react-extension-manager",
+    "libraryId": "d561d0f5-463c-4e0d-ab1a-a22da58e88c7",
+    "environment": "spo"
+  }
+}
