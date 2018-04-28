@@ -34,7 +34,6 @@ export class ExtensionService implements IExtensionService {
                     console.log("Response from onInit", data);
                     return data.value;
                 });
-
         } catch (error) {
             console.log("Error loading extensions: ", error);
         }
