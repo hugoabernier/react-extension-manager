@@ -311,6 +311,8 @@
       "switch-final-break": true,
       "type-literal-delimiter": false,
       "use-default-type-parameter": false,
+      "fix-no-var-keyword": true,
+      "fix-no-require-imports": true
     }
   }
 }
