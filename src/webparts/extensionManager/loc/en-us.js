@@ -24,5 +24,10 @@ define([], function() {
     "ContextMenuLocation": "Context Menu",
     "ListViewLocation": "Command Bar/Context Menu",
     "ECBLocation": "Edit Control Block",
+    "NewButton": "New",
+    "DeleteButton": "Delete",
+    "UploadButton": "Upload",
+    "InfoButton": "Open the details pane",
+    "EditButton": "Edit",
   }
 });

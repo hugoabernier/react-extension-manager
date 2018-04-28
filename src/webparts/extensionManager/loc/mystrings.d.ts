@@ -22,7 +22,13 @@ declare interface IExtensionManagerWebPartStrings {
   CommandBarLocation: string;
   ContextMenuLocation: string;
   ListViewLocation: string;
-  ECBLocation:string;
+  ECBLocation: string;
+  NewButton: strings;
+  EditButton: string;
+  DeleteButton: string;
+  UploadButton: string;
+  InfoButton: string;
+  EditButton: string;
 }
 
 declare module 'ExtensionManagerWebPartStrings' {

@@ -34,6 +34,8 @@ export default class ExtensionManager extends React.Component<IExtensionManagerP
     this.state = {
       dataLoaded: false,
     };
+
+    this._onSelectionChanged = this._onSelectionChanged.bind(this);
   }
 
   public async componentDidMount(): Promise<void> {
@@ -57,6 +59,7 @@ export default class ExtensionManager extends React.Component<IExtensionManagerP
           <ExtensionListView
             items={this._extensionItems}
             defaultSelection={[]}
+            // onSelectionChanged={this._onSelectionChanged}
           />
         }
       </div>
@@ -68,5 +71,12 @@ export default class ExtensionManager extends React.Component<IExtensionManagerP
       new MockExtensionService() :
       new ExtensionService(this.props.webPartContext);
     return dataService.getExtensions();
+  }
+
+  private _onSelectionChanged(selection:IUserCustomAction[]): void {
+    console.log("SelectionChanged", selection.length);
+    this.setState({
+      selection: selection
+    });
   }
 }
