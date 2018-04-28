@@ -1,14 +1,15 @@
+/**
+ * ExtensionListView
+ */
 import { cloneDeep, findIndex, has, isEqual, sortBy } from "@microsoft/sp-lodash-subset";
 import { IUserCustomAction } from "../services";
-import ExtensionCommandBar from "./ExtensionCommandBar";
-import ExtensionPanel from "./ExtensionPanel";
+import { ExtensionCommandBar } from "./ExtensionCommandBar";
+import { ExtensionPanel } from "./ExtensionPanel";
 import {
     ContextualMenu,
     DirectionalHint,
     IContextualMenuItem,
     IContextualMenuProps,
-} from "office-ui-fabric-react/lib/ContextualMenu";
-import {
     buildColumns,
     ColumnActionsMode,
     DetailsList,
@@ -16,19 +17,19 @@ import {
     IColumn,
     IGroup,
     IObjectWithKey,
+    MarqueeSelection,
     Selection,
-    SelectionMode,
-} from "office-ui-fabric-react/lib/DetailsList";
-import { MarqueeSelection } from "office-ui-fabric-react/lib/MarqueeSelection";
+    SelectionMode
+} from "office-ui-fabric-react";
 import * as strings from "ExtensionManagerWebPartStrings";
 import * as React from "react";
 import { IExtensionListViewProps, IExtensionListViewState } from "./ExtensionListView.types";
 
-let _items: any[];
+let items: any[];
 
 export class ExtensionListView extends React.Component<IExtensionListViewProps, IExtensionListViewState> {
-    private _selection: Selection;
-    private _columns: IColumn[] = [
+    private selection: Selection;
+    private columns: IColumn[] = [
         {
             key: "titleColumn",
             name: strings.TitleHeader,
@@ -36,7 +37,7 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             minWidth: 100,
             maxWidth: 300,
             isResizable: true,
-            columnActionsMode: ColumnActionsMode.hasDropdown,
+            columnActionsMode: ColumnActionsMode.hasDropdown
         },
         {
             key: "scopeColumn",
@@ -45,8 +46,8 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             minWidth: 30,
             maxWidth: 50,
             isResizable: true,
-            onRender: this._renderScopeColumn,
-            columnActionsMode: ColumnActionsMode.hasDropdown,
+            onRender: this.renderScopeColumn,
+            columnActionsMode: ColumnActionsMode.hasDropdown
         },
         {
             key: "rtColumn",
@@ -55,8 +56,8 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             minWidth: 50,
             maxWidth: 100,
             isResizable: true,
-            onRender: this._renderRegistrationTypeColumn,
-            columnActionsMode: ColumnActionsMode.hasDropdown,
+            onRender: this.renderRegistrationTypeColumn,
+            columnActionsMode: ColumnActionsMode.hasDropdown
         },
         {
             key: "locationColumn",
@@ -65,32 +66,32 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             minWidth: 10,
             maxWidth: 200,
             isResizable: true,
-            onRender: this._renderLocationColumn,
-            columnActionsMode: ColumnActionsMode.hasDropdown,
-        },
+            onRender: this.renderLocationColumn,
+            columnActionsMode: ColumnActionsMode.hasDropdown
+        }
     ];
     constructor(props: IExtensionListViewProps) {
         super(props);
 
-        this._selection = new Selection({
-            onSelectionChanged: () => this._getSelectionDetails()
+        this.selection = new Selection({
+            onSelectionChanged: () => this.getSelectionDetails()
         });
 
-        _items = this.props.items;
+        items = this.props.items;
 
         // initialize state
         this.state = {
-            sortedItems: _items,
-            columns: this._columns,
+            sortedItems: items,
+            columns: this.columns,
             loading: true,
             contextualMenuProps: undefined,
-            selectionCount: this._selection.getSelectedCount(),
+            selectionCount: this.selection.getSelectedCount(),
             showPane: false
         };
 
-        this._onColumnClick = this._onColumnClick.bind(this);
-        this._onItemInvoked = this._onItemInvoked.bind(this);
-        this._onColumnHeaderContextMenu = this._onColumnHeaderContextMenu.bind(this);
+        this.onColumnClick = this.onColumnClick.bind(this);
+        this.onItemInvoked = this.onItemInvoked.bind(this);
+        this.onColumnHeaderContextMenu = this.onColumnHeaderContextMenu.bind(this);
     }
 
     public render(): React.ReactElement<IExtensionListViewProps> {
@@ -98,28 +99,26 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             sortedItems,
             columns,
             loading,
-            contextualMenuProps,
+            contextualMenuProps
         } = this.state;
-
-        console.log("render", sortedItems);
 
         return (
             <div>
                 <ExtensionCommandBar
                     selectionCount={this.state.selectionCount}
-                    onToggleInfoPane={this._onToggleInfoPane}
+                    onToggleInfoPane={this.onToggleInfoPane}
                 />
-                <MarqueeSelection selection={this._selection}>
+                <MarqueeSelection selection={this.selection}>
                     <DetailsList
                         items={sortedItems}
-                        columns={this._columns}
+                        columns={this.columns}
                         setKey="key"
                         layoutMode={DetailsListLayoutMode.fixedColumns}
-                        selection={this._selection}
+                        selection={this.selection}
                         selectionPreservedOnEmptyClick={false}
-                        onColumnHeaderClick={this._onColumnClick}
-                        onItemInvoked={this._onItemInvoked}
-                        onColumnHeaderContextMenu={this._onColumnHeaderContextMenu}
+                        onColumnHeaderClick={this.onColumnClick}
+                        onItemInvoked={this.onItemInvoked}
+                        onColumnHeaderContextMenu={this.onColumnHeaderContextMenu}
                     />
                 </MarqueeSelection>
                 {contextualMenuProps && (
@@ -127,7 +126,7 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
                 )}
                 <ExtensionPanel
                 isOpen={this.state.showPane}
-                onDismiss={this._onDismissPane}
+                onDismiss={this.onDismissPane}
                 />
             </div>
         );
@@ -135,49 +134,37 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
 
     public componentDidUpdate(prevProps: IExtensionListViewProps, prevState: IExtensionListViewState): void {
         // select default items
-        this._setSelectedItems();
+        this.setSelectedItems();
 
         if (!isEqual(prevProps, this.props)) {
             // this._selection.setItems(this.props.items, true);
-            _items = this.props.items;
+            items = this.props.items;
         }
     }
 
-    private _getSelectionDetails(): void {
-        const selected:IUserCustomAction[] = this._selection.getSelection() as IUserCustomAction[];
-        console.log("_getSelectionDetails", selected);
+    private getSelectionDetails(): void {
+        const selected: IUserCustomAction[] = this.selection.getSelection() as IUserCustomAction[];
         this.setState(
             {
-                selectionCount: this._selection.getSelectedCount()
+                selectionCount: this.selection.getSelectedCount()
             });
-        // this.props.onSelectionChanged(selected);
-        // const selectionCount:number = this._selection.getSelectedCount();
-
-        // switch (selectionCount) {
-        //   case 0:
-        //     return 'No items selected';
-        //   case 1:
-        //     return '1 item selected: ' + (this._selection.getSelection()[0] as any).name;
-        //   default:
-        //     return `${selectionCount} items selected`;
-        // }
       }
 
-    private _setSelectedItems(): void {
+    private setSelectedItems(): void {
         if (this.props.items &&
             this.props.items.length > 0 &&
             this.props.defaultSelection &&
             this.props.defaultSelection.length > 0) {
             this.props.defaultSelection.forEach((element: any, index: number) => {
                 if (index > -1) {
-                    this._selection.setIndexSelected(index, true, false);
+                    this.selection.setIndexSelected(index, true, false);
                 }
             });
 
         }
     }
 
-    private _renderScopeColumn(item: any, index: number, column: IColumn): JSX.Element {
+    private renderScopeColumn(item: any, index: number, column: IColumn): JSX.Element {
         const fieldContent: any = item[column.fieldName];
         let scopeLabel: string;
         switch (fieldContent) {
@@ -200,7 +187,7 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
         return <span>{scopeLabel}</span>;
     }
 
-    private _renderRegistrationTypeColumn(item: any, index: number, column: IColumn): JSX.Element {
+    private renderRegistrationTypeColumn(item: any, index: number, column: IColumn): JSX.Element {
         const fieldContent: any = item[column.fieldName];
 
         let registrationTypeLabel: string;
@@ -227,7 +214,7 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
         return <span>{registrationTypeLabel}</span>;
     }
 
-    private _renderLocationColumn(item: any, index: number, column: IColumn): JSX.Element {
+    private renderLocationColumn(item: any, index: number, column: IColumn): JSX.Element {
         const fieldContent: any = item[column.fieldName];
 
         let locationLabel: string;
@@ -254,7 +241,7 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
         return <span>{locationLabel}</span>;
     }
 
-    private _getRegistrationTypeLabel(registrationTypeValue: number): string {
+    private getRegistrationTypeLabel(registrationTypeValue: number): string {
         // translate values according to https://msdn.microsoft.com/en-us/library/office/dn531432.aspx#bk_UserCustomActionProperties
         switch (registrationTypeValue) {
             case 0:
@@ -294,36 +281,27 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
     //     return sortedItems;
     // }
 
-    private _onColumnHeaderContextMenu(column: IColumn | undefined, ev: React.MouseEvent<HTMLElement> | undefined): void {
-        console.log(`column ${column!.key} contextmenu opened.`);
+    private onColumnHeaderContextMenu(column: IColumn | undefined, ev: React.MouseEvent<HTMLElement> | undefined): void {
         if (column.columnActionsMode !== ColumnActionsMode.disabled) {
             this.setState({
-                contextualMenuProps: this._getContextualMenuProps(ev, column)
+                contextualMenuProps: this.getContextualMenuProps(ev, column)
             });
         }
     }
 
-    private _onItemInvoked(item: any, index: number | undefined): void {
+    private onItemInvoked(item: any, index: number | undefined): void {
         alert(`Item ${item.name} at index ${index} has been invoked.`);
     }
 
-    private _onColumnClick(ev: React.MouseEvent<HTMLElement>, column: IColumn): void {
-        //     let isSortedDescending: boolean = column.isSortedDescending;
-
-        //     // if we've sorted this column, flip it.
-        //     if (column.isSorted) {
-        //         isSortedDescending = !isSortedDescending;
-        //     }
-        //    this._sortItems(column, isSortedDescending);
-        console.log(`column ${column!.key} contextmenu opened.`);
+    private onColumnClick(ev: React.MouseEvent<HTMLElement>, column: IColumn): void {
         if (column.columnActionsMode !== ColumnActionsMode.disabled) {
             this.setState({
-                contextualMenuProps: this._getContextualMenuProps(ev, column)
+                contextualMenuProps: this.getContextualMenuProps(ev, column)
             });
         }
     }
 
-    private _sortItems(column: IColumn, isSortedDescending: boolean): void {
+    private sortItems(column: IColumn, isSortedDescending: boolean): void {
         let { sortedItems } = this.state;
         const { columns } = this.state;
 
@@ -356,22 +334,21 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
         });
     }
 
-    private _getContextualMenuProps(ev: React.MouseEvent<HTMLElement>, column: IColumn): IContextualMenuProps {
-        const items: IUserCustomAction[] = this.state.sortedItems;
+    private getContextualMenuProps(ev: React.MouseEvent<HTMLElement>, column: IColumn): IContextualMenuProps {
         const menuItems: IContextualMenuItem[] = [
             {
                 key: "aToZ",
                 name: "A to Z",
                 canCheck: true,
                 checked: column.isSorted && !column.isSortedDescending,
-                onClick: () => this._sortItems(column, false)
+                onClick: () => this.sortItems(column, false)
             },
             {
                 key: "zToA",
                 name: "Z to A",
                 canCheck: true,
                 checked: column.isSorted && column.isSortedDescending,
-                onClick: () => this._sortItems(column, true)
+                onClick: () => this.sortItems(column, true)
             }
         ];
         // if (isGroupable(column.key)) {
@@ -390,23 +367,23 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             directionalHint: DirectionalHint.bottomLeftEdge,
             gapSpace: 10,
             isBeakVisible: true,
-            onDismiss: this._onContextualMenuDismissed
+            onDismiss: this.onContextualMenuDismissed
         };
     }
 
-    private _onContextualMenuDismissed = (): void => {
+    private onContextualMenuDismissed = (): void => {
         this.setState({
             contextualMenuProps: undefined
         });
     }
 
-    private _onDismissPane = (): void => {
+    private onDismissPane = (): void => {
         this.setState({
             showPane: false
         });
     }
 
-    private _onToggleInfoPane = (): void => {
+    private onToggleInfoPane = (): void => {
         this.setState({
             showPane: !this.state.showPane
         });

@@ -1,28 +1,31 @@
-import { CommandBar } from "office-ui-fabric-react/lib/CommandBar";
+/**
+ * ExtensionCommandBar
+ */
+import { CommandBar } from "office-ui-fabric-react";
 import * as strings from "ExtensionManagerWebPartStrings";
 import * as React from "react";
 
 export interface IExtensionCommandBarProps {
-    selectionCount:number;
-    onToggleInfoPane:() => void;
+    selectionCount: number;
+    onToggleInfoPane: () => void;
 }
 
 export interface IExtensionCommandBarState { }
 
-export default class ExtensionCommandBar extends React.Component<IExtensionCommandBarProps, IExtensionCommandBarState> {
+export class ExtensionCommandBar extends React.Component<IExtensionCommandBarProps, IExtensionCommandBarState> {
     private newItems: any[] = [
         {
             key: "newItem",
             name: strings.NewButton,
             icon: "Add",
-            ["data-automation-id"]: "newItemMenu",
+            ["data-automation-id"]: "newItemMenu"
         },
         {
             key: "upload",
             name: strings.UploadButton,
             icon: "Upload",
             ["data-automation-id"]: "uploadButton"
-        },
+        }
     ];
 
     private editItems: any[] = [
@@ -31,7 +34,7 @@ export default class ExtensionCommandBar extends React.Component<IExtensionComma
             name: strings.EditButton,
             icon: "Edit",
             ["data-automation-id"]: "editButton"
-        },
+        }
     ];
 
     private deleteItems: any[] = [
@@ -40,7 +43,7 @@ export default class ExtensionCommandBar extends React.Component<IExtensionComma
             name: strings.DeleteButton,
             icon: "Delete",
             ["data-automation-id"]: "deleteButton"
-        },
+        }
     ];
 
     private farItems: any = [
@@ -55,10 +58,10 @@ export default class ExtensionCommandBar extends React.Component<IExtensionComma
     ];
 
     public render(): React.ReactElement<IExtensionCommandBarProps> {
-        let items:any[] = [];
+        let items: any[] = [];
 
         // get the number of items currently selected
-        const count:number = this.props.selectionCount;
+        const count: number = this.props.selectionCount;
 
         // combine menu items to create a toolbar that changes according to selection
         // to mimic the behaviour found in (modern) SharePoint lists

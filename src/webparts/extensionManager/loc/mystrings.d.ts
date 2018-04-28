@@ -1,3 +1,6 @@
+/**
+ * mystrings.d.ts
+ */
 declare interface IExtensionManagerWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
@@ -31,7 +34,7 @@ declare interface IExtensionManagerWebPartStrings {
   EditButton: string;
 }
 
-declare module 'ExtensionManagerWebPartStrings' {
+declare module "ExtensionManagerWebPartStrings" {
   const strings: IExtensionManagerWebPartStrings;
   export = strings;
 }

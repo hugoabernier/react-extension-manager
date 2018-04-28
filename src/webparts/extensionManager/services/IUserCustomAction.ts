@@ -1,4 +1,6 @@
-
+/**
+ * IUSerCustomAction
+ */
 export interface IUserCustomAction {
     "@odata.type": string;
     "@odata.id": string;

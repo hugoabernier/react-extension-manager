@@ -1,5 +1,9 @@
-import { IContextualMenuProps } from "office-ui-fabric-react/lib/ContextualMenu";
-import { IColumn } from "office-ui-fabric-react/lib/DetailsList";
+/**
+ * ExtensionListView.types
+ */
+import { IColumn,
+    IContextualMenuProps
+} from "office-ui-fabric-react";
 import { IUserCustomAction } from "../services";
 
 export interface IExtensionListViewProps {
@@ -10,8 +14,8 @@ export interface IExtensionListViewProps {
 
 export interface IExtensionListViewState {
     sortedItems: IUserCustomAction[];
-    columns:IColumn[];
-    loading:boolean;
+    columns: IColumn[];
+    loading: boolean;
     contextualMenuProps?: IContextualMenuProps;
     selectionCount: number;
     showPane: boolean;

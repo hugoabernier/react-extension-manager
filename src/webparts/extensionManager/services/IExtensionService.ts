@@ -1,4 +1,6 @@
-
+/**
+ * IExtensionService
+ */
 import { IUserCustomAction } from "./IUserCustomAction";
 import { IUserCustomActionCollection } from "./IUserCustomActionCollection";
 

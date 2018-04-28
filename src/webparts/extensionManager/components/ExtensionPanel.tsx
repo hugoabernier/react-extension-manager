@@ -1,14 +1,19 @@
+/**
+ * Extension panel
+ */
 import * as React from "react";
-import { Panel, PanelType } from "office-ui-fabric-react/lib/Panel";
+import { Panel, PanelType } from "office-ui-fabric-react";
 import ReactJson from "react-json-view";
 export interface IExtensionPanelProps {
   isOpen: boolean;
-  onDismiss:() => void;
+  onDismiss: () => void;
 }
 
-export interface IExtensionPanelState {}
+export interface IExtensionPanelState {
+    //
+}
 
-const light:any = {
+const light: any = {
   default         : "#3E4040",
   background      : "#E3E9EA0D",
   border          : "#00000026",
@@ -20,7 +25,7 @@ const light:any = {
   primitive       : "#386FA4"
 };
 
-const sampleObject:any = {
+const sampleObject: any = {
   "example prop" : undefined,
   nancy_mccarty : {
       A1: {
@@ -31,7 +36,7 @@ const sampleObject:any = {
           date_created : 151208443563,
           date_signed : 151208448055,
           date_approved: 151208471190,
-          answers: ["Yes","No","No","Yes","No"]
+          answers: ["Yes", "No", "No", "Yes", "No"]
       },
       A2: {
           userID: "nancy_mccarty",
@@ -41,7 +46,7 @@ const sampleObject:any = {
           date_created : 151208450090,
           date_signed : false,
           date_approved: false,
-          answers: ["No","No","No","Yes","Yes"]
+          answers: ["No", "No", "No", "Yes", "Yes"]
       }
   },
   george_richardson : {
@@ -53,7 +58,7 @@ const sampleObject:any = {
           date_created : 1512076585058,
           date_signed : false,
           date_approved: false,
-          answers: ["No","Yes","Yes","Yes","Yes"]
+          answers: ["No", "Yes", "Yes", "Yes", "Yes"]
       }
   },
   tom_hughe : {
@@ -65,7 +70,7 @@ const sampleObject:any = {
           date_created : 1512076575026,
           date_signed : 1512076609894,
           date_approved: false,
-          answers: ["Yes","No","No","Yes","No"]
+          answers: ["Yes", "No", "No", "Yes", "No"]
       },
       M1: {
           userID: "tom_hughe",
@@ -75,7 +80,7 @@ const sampleObject:any = {
           date_created : 1512076587361,
           date_signed : false,
           date_approved: false,
-          answers: [false,false,false,false,false]
+          answers: [false, false, false, false, false]
       }
   },
   heidy_white : {
@@ -87,12 +92,12 @@ const sampleObject:any = {
           date_created : 15120765766312,
           date_signed : false,
           date_approved: false,
-          answers: [false,false,false,false,false]
+          answers: [false, false, false, false, false]
       }
   }
 };
 
-export default class ExtensionPanel extends React.Component<IExtensionPanelProps, IExtensionPanelState> {
+export class ExtensionPanel extends React.Component<IExtensionPanelProps, IExtensionPanelState> {
   public render(): React.ReactElement<IExtensionPanelProps> {
     return (
       <Panel

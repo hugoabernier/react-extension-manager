@@ -1,3 +1,6 @@
+/**
+ * ExtensionManagerWebPart
+ */
 import { Version } from "@microsoft/sp-core-library";
 import {
   BaseClientSideWebPart,
@@ -7,7 +10,7 @@ import {
 import * as strings from "ExtensionManagerWebPartStrings";
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import ExtensionManager from "./components/ExtensionManager";
+import { ExtensionManager } from "./components/ExtensionManager";
 import { IExtensionManagerProps } from "./components/IExtensionManager.types";
 
 export interface IExtensionManagerWebPartProps {

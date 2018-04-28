@@ -1,3 +1,6 @@
+/**
+ * ExtensionService
+ */
 import {
     ISPHttpClientOptions,
     SPHttpClient,
@@ -16,12 +19,11 @@ export class ExtensionService implements IExtensionService {
     }
 
     public async getExtensions(): Promise<IUserCustomAction[]> {
-        console.log("getExtension", this.context);
         const webUrl: string = this.context.pageContext.web.absoluteUrl;
         return this.getExtensionsByUrl(webUrl);
     }
 
-    public async getExtensionsByUrl(url:string): Promise<IUserCustomAction[]> {
+    public async getExtensionsByUrl(url: string): Promise<IUserCustomAction[]> {
         const apiUrl: string = `${url}/_api/web/UserCustomActions`;
 
         try {
@@ -31,11 +33,10 @@ export class ExtensionService implements IExtensionService {
                 SPHttpClient.configurations.v1)
                 .then((data: SPHttpClientResponse) => data.json())
                 .then((data: IUserCustomActionCollection) => {
-                    console.log("Response from onInit", data);
                     return data.value;
                 });
         } catch (error) {
-            console.log("Error loading extensions: ", error);
+            console.error("Error loading extensions: ", error);
         }
     }
 }

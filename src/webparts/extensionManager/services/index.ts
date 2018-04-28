@@ -1,3 +1,6 @@
+/**
+ * Index
+ */
 export * from "./ExtensionService";
 export * from "./IUserCustomAction";
 export * from "./IUserCustomActionCollection";

@@ -1,3 +1,6 @@
+/**
+ * ExtensionManager
+ */
 import {
   Environment,
   EnvironmentType
@@ -20,29 +23,29 @@ import { ExtensionListView } from "./ExtensionListView";
 import styles from "./ExtensionManager.module.scss";
 import {
   IExtensionManagerProps,
-  IExtensionManagerState,
+  IExtensionManagerState
 } from "./IExtensionManager.types";
 
-export default class ExtensionManager extends React.Component<IExtensionManagerProps, IExtensionManagerState> {
-  private _maxResults = 1000;
-  private _extensionItems: IUserCustomAction[] = [];
-  private _selectedExtensionItems: IUserCustomAction[] = [];
+export class ExtensionManager extends React.Component<IExtensionManagerProps, IExtensionManagerState> {
+  private maxResults: number = 1000;
+  private extensionItems: IUserCustomAction[] = [];
+  private selectedExtensionItems: IUserCustomAction[] = [];
 
   constructor(props: IExtensionManagerProps) {
     super(props);
 
     this.state = {
-      dataLoaded: false,
+      dataLoaded: false
     };
 
-    this._onSelectionChanged = this._onSelectionChanged.bind(this);
+    this.onSelectionChanged = this.onSelectionChanged.bind(this);
   }
 
   public async componentDidMount(): Promise<void> {
     this.props.webPartContext.statusRenderer.displayLoadingIndicator(
       document.getElementsByClassName(styles.extensionManager)[0], strings.LoadingLabel);
 
-    this._extensionItems = await this._getExtensionItems();
+    this.extensionItems = await this.getExtensionItems();
     this.setState({
       dataLoaded: true
     });
@@ -51,13 +54,11 @@ export default class ExtensionManager extends React.Component<IExtensionManagerP
   }
 
   public render(): React.ReactElement<IExtensionManagerProps> {
-    console.log("items", this._extensionItems);
-
     return (
       <div className={styles.extensionManager}>
         {this.state.dataLoaded &&
           <ExtensionListView
-            items={this._extensionItems}
+            items={this.extensionItems}
             defaultSelection={[]}
             // onSelectionChanged={this._onSelectionChanged}
           />
@@ -66,15 +67,14 @@ export default class ExtensionManager extends React.Component<IExtensionManagerP
     );
   }
 
-  private async _getExtensionItems(): Promise<IUserCustomAction[]> {
+  private async getExtensionItems(): Promise<IUserCustomAction[]> {
     const dataService: IExtensionService = (Environment.type === EnvironmentType.Test || Environment.type === EnvironmentType.Local) ?
       new MockExtensionService() :
       new ExtensionService(this.props.webPartContext);
     return dataService.getExtensions();
   }
 
-  private _onSelectionChanged(selection:IUserCustomAction[]): void {
-    console.log("SelectionChanged", selection.length);
+  private onSelectionChanged(selection: IUserCustomAction[]): void {
     this.setState({
       selection: selection
     });

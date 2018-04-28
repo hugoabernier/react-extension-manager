@@ -16607,7 +16607,6 @@
       "version": "5.0.3",
       "resolved": "https://registry.npmjs.org/tslint-microsoft-contrib/-/tslint-microsoft-contrib-5.0.3.tgz",
       "integrity": "sha512-5AnfTGlfpUzpRHLmoojPBKFTTmbjnwgdaTHMdllausa4GBPya5u36i9ddrTX4PhetGZvd4JUYIpAmgHqVnsctg==",
-      "dev": true,
       "requires": {
         "tsutils": "^2.12.1"
       }
@@ -16622,7 +16621,6 @@
       "version": "2.22.2",
       "resolved": "https://registry.npmjs.org/tsutils/-/tsutils-2.22.2.tgz",
       "integrity": "sha512-u06FUSulCJ+Y8a2ftuqZN6kIGqdP2yJjUPEngXqmdPND4UQfb04igcotH+dw+IFr417yP6muCLE8/5/Qlfnx0w==",
-      "dev": true,
       "requires": {
         "tslib": "^1.8.1"
       }

@@ -1,3 +1,6 @@
+/**
+ * IExtensionManager.types
+ */
 import { IWebPartContext } from "@microsoft/sp-webpart-base";
 import { IUserCustomAction } from "../services";
 
