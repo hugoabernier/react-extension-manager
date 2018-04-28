@@ -82,7 +82,7 @@
       "no-use-before-declare": true,
       "no-with-statement": true,
       "prefer-const": true,
-      "ordered-imports": true,
+      "ordered-imports": false,
       "semicolon": true,
       "trailing-comma": false,
       // "typedef": false,

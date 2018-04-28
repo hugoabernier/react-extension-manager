@@ -2874,6 +2874,11 @@
         }
       }
     },
+    "base16": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/base16/-/base16-1.0.0.tgz",
+      "integrity": "sha1-4pf2DX7BAUp6lxo568ipjAtoHnA="
+    },
     "base64-arraybuffer": {
       "version": "0.1.5",
       "resolved": "https://registry.npmjs.org/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz",
@@ -5781,6 +5786,14 @@
         "bser": "^2.0.0"
       }
     },
+    "fbemitter": {
+      "version": "2.1.1",
+      "resolved": "https://registry.npmjs.org/fbemitter/-/fbemitter-2.1.1.tgz",
+      "integrity": "sha1-Uj4U/a9SSIBbsC9i78M75wP1GGU=",
+      "requires": {
+        "fbjs": "^0.8.4"
+      }
+    },
     "fbjs": {
       "version": "0.8.16",
       "resolved": "https://registry.npmjs.org/fbjs/-/fbjs-0.8.16.tgz",
@@ -5973,6 +5986,15 @@
       "resolved": "https://registry.npmjs.org/flatten/-/flatten-1.0.2.tgz",
       "integrity": "sha1-2uRqnXj74lKSJYzB54CkHZXAN4I=",
       "dev": true
+    },
+    "flux": {
+      "version": "3.1.3",
+      "resolved": "https://registry.npmjs.org/flux/-/flux-3.1.3.tgz",
+      "integrity": "sha1-0jvtUVp5oi2TOrU6tK2hnQWy8Io=",
+      "requires": {
+        "fbemitter": "^2.0.0",
+        "fbjs": "^0.8.0"
+      }
     },
     "for-in": {
       "version": "1.0.2",
@@ -11268,6 +11290,11 @@
         "lodash._isiterateecall": "^3.0.0"
       }
     },
+    "lodash.curry": {
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/lodash.curry/-/lodash.curry-4.1.1.tgz",
+      "integrity": "sha1-JI42By7ekGUB11lmIAqG2riyMXA="
+    },
     "lodash.defaults": {
       "version": "2.4.1",
       "resolved": "https://registry.npmjs.org/lodash.defaults/-/lodash.defaults-2.4.1.tgz",
@@ -11299,6 +11326,11 @@
       "requires": {
         "lodash._root": "^3.0.0"
       }
+    },
+    "lodash.flow": {
+      "version": "3.5.0",
+      "resolved": "https://registry.npmjs.org/lodash.flow/-/lodash.flow-3.5.0.tgz",
+      "integrity": "sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o="
     },
     "lodash.get": {
       "version": "4.4.2",
@@ -14079,6 +14111,11 @@
       "integrity": "sha1-wNWmOycYgArY4esPpSachN1BhF4=",
       "dev": true
     },
+    "pure-color": {
+      "version": "1.3.0",
+      "resolved": "https://registry.npmjs.org/pure-color/-/pure-color-1.3.0.tgz",
+      "integrity": "sha1-H+Bk+wrIUfDeYTIKi/eWg2Qi8z4="
+    },
     "q": {
       "version": "1.5.1",
       "resolved": "https://registry.npmjs.org/q/-/q-1.5.1.tgz",
@@ -14197,6 +14234,17 @@
         "prop-types": "^15.5.10"
       }
     },
+    "react-base16-styling": {
+      "version": "0.5.3",
+      "resolved": "https://registry.npmjs.org/react-base16-styling/-/react-base16-styling-0.5.3.tgz",
+      "integrity": "sha1-OFjyTpxN2MvT9wLz901YHKKRcmk=",
+      "requires": {
+        "base16": "^1.0.0",
+        "lodash.curry": "^4.0.1",
+        "lodash.flow": "^3.3.0",
+        "pure-color": "^1.2.0"
+      }
+    },
     "react-dom": {
       "version": "15.6.2",
       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.6.2.tgz",
@@ -14206,6 +14254,24 @@
         "loose-envify": "^1.1.0",
         "object-assign": "^4.1.0",
         "prop-types": "^15.5.10"
+      }
+    },
+    "react-json-view": {
+      "version": "1.16.1",
+      "resolved": "https://registry.npmjs.org/react-json-view/-/react-json-view-1.16.1.tgz",
+      "integrity": "sha512-9gx2S+b9+LHbjnIzIXrcDU14YI5KP3hhDgNHrQiLsV3dtnzoT8m6j37h7dpCaO1hPLZEc3Q/6VS1QjiLi0HT/w==",
+      "requires": {
+        "flux": "^3.1.3",
+        "react-base16-styling": "^0.5.3",
+        "react-textarea-autosize": "^5.1.0"
+      }
+    },
+    "react-textarea-autosize": {
+      "version": "5.2.1",
+      "resolved": "https://registry.npmjs.org/react-textarea-autosize/-/react-textarea-autosize-5.2.1.tgz",
+      "integrity": "sha512-bx6z2I35aapr71ggw2yZIA4qhmqeTa4ZVsSaTeFvtf9kfcZppDBh2PbMt8lvbdmzEk7qbSFhAxR9vxEVm6oiMg==",
+      "requires": {
+        "prop-types": "^15.6.0"
       }
     },
     "read": {

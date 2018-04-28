@@ -14,4 +14,5 @@ export interface IExtensionListViewState {
     loading:boolean;
     contextualMenuProps?: IContextualMenuProps;
     selectionCount: number;
+    showPane: boolean;
 }

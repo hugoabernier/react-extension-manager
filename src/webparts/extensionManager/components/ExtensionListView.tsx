@@ -1,6 +1,7 @@
 import { cloneDeep, findIndex, has, isEqual, sortBy } from "@microsoft/sp-lodash-subset";
 import { IUserCustomAction } from "../services";
 import ExtensionCommandBar from "./ExtensionCommandBar";
+import ExtensionPanel from "./ExtensionPanel";
 import {
     ContextualMenu,
     DirectionalHint,
@@ -19,8 +20,8 @@ import {
     SelectionMode,
 } from "office-ui-fabric-react/lib/DetailsList";
 import { MarqueeSelection } from "office-ui-fabric-react/lib/MarqueeSelection";
-import * as React from "react";
 import * as strings from "ExtensionManagerWebPartStrings";
+import * as React from "react";
 import { IExtensionListViewProps, IExtensionListViewState } from "./ExtensionListView.types";
 
 let _items: any[];
@@ -83,7 +84,8 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             columns: this._columns,
             loading: true,
             contextualMenuProps: undefined,
-            selectionCount: this._selection.getSelectedCount()
+            selectionCount: this._selection.getSelectedCount(),
+            showPane: false
         };
 
         this._onColumnClick = this._onColumnClick.bind(this);
@@ -105,6 +107,7 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
             <div>
                 <ExtensionCommandBar
                     selectionCount={this.state.selectionCount}
+                    onToggleInfoPane={this._onToggleInfoPane}
                 />
                 <MarqueeSelection selection={this._selection}>
                     <DetailsList
@@ -122,6 +125,10 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
                 {contextualMenuProps && (
                     <ContextualMenu {...contextualMenuProps} />
                 )}
+                <ExtensionPanel
+                isOpen={this.state.showPane}
+                onDismiss={this._onDismissPane}
+                />
             </div>
         );
     }
@@ -155,7 +162,6 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
         //     return `${selectionCount} items selected`;
         // }
       }
-
 
     private _setSelectedItems(): void {
         if (this.props.items &&
@@ -391,6 +397,18 @@ export class ExtensionListView extends React.Component<IExtensionListViewProps, 
     private _onContextualMenuDismissed = (): void => {
         this.setState({
             contextualMenuProps: undefined
+        });
+    }
+
+    private _onDismissPane = (): void => {
+        this.setState({
+            showPane: false
+        });
+    }
+
+    private _onToggleInfoPane = (): void => {
+        this.setState({
+            showPane: !this.state.showPane
         });
     }
 }
