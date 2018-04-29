@@ -130,7 +130,7 @@ const bogusExtensions: any = [
     Url: undefined,
     VersionOfUserCustomAction: "16.0.1.0"
   },
-{
+  {
     "@odata.type": "#SP.UserCustomAction",
     "@odata.id":
       "https://contoso.sharepoint.com/sites/AppDevHugo/_api/Web/UserCustomActions(guid'4427baa9-bc3c-485c-a41a-a60283ec26e5')",
@@ -507,7 +507,8 @@ const bogusExtensions: any = [
     Sequence: 0,
     Title: "CustomHeaderFooter",
     Url: undefined,
-    VersionOfUserCustomAction: "16.0.1.0"      },
+    VersionOfUserCustomAction: "16.0.1.0"
+  },
   {
     "@odata.type": "#SP.UserCustomAction",
     "@odata.id":
@@ -540,8 +541,8 @@ const bogusExtensions: any = [
     "@odata.editLink": "Web/UserCustomActions(guid'4427baa9-bc3c-485c-a41a-a60283ec2705')",
     ClientSideComponentId: "aaa4141f-7829-4b98-af0f-a1e0e6f273fd",
     ClientSideComponentProperties:
-    "{&quot;sampleTextOne&quot;:&quot;One item is selected in the list.&quot;,"
-    + "&quot;sampleTextTwo&quot;:&quot;This command is always visible.&quot;}",
+      "{&quot;sampleTextOne&quot;:&quot;One item is selected in the list.&quot;,"
+      + "&quot;sampleTextTwo&quot;:&quot;This command is always visible.&quot;}",
     CommandUIExtension: undefined,
     Description: "",
     Group: undefined,
@@ -617,8 +618,8 @@ const bogusExtensions: any = [
     "@odata.editLink": "Web/UserCustomActions(guid'4427baa9-bc3c-485c-a41a-a60283ec2708')",
     ClientSideComponentId: "a528d81e-bf9b-4463-8cda-21d76ca99243",
     ClientSideComponentProperties:
-    "{&quot;sampleTextOne&quot;:&quot;One item is selected in the list.&quot;,"
-    + "&quot;sampleTextTwo&quot;:&quot;This command is always visible.&quot;}",
+      "{&quot;sampleTextOne&quot;:&quot;One item is selected in the list.&quot;,"
+      + "&quot;sampleTextTwo&quot;:&quot;This command is always visible.&quot;}",
     CommandUIExtension: undefined,
     Description: "",
     Group: undefined,
@@ -721,7 +722,7 @@ export class MockExtensionService implements IExtensionService {
     // return a list of extensions found on https://github.com/SharePoint/sp-dev-fx-extensions
     // if there are any invalid definitions, I made the mistake -- not the respective authors of the extensions listed below
     this.extensions = bogusExtensions;
-    }
+  }
 
   public getExtensions(): Promise<IUserCustomAction[]> {
     return new Promise<IUserCustomAction[]>((resolve: any) => {

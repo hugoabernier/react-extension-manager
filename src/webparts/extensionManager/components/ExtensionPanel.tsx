@@ -1,5 +1,5 @@
 /**
- * Responsible for showing the edit panel for a component
+ * Responsible for showing the edit panel for a componentgit
  */
 import * as React from "react";
 import { Panel, PanelType } from "office-ui-fabric-react";

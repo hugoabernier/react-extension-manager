@@ -20,7 +20,7 @@ export interface IExtensionManagerWebPartProps {
 export default class ExtensionManagerWebPart extends BaseClientSideWebPart<IExtensionManagerWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IExtensionManagerProps > = React.createElement(
+    const element: React.ReactElement<IExtensionManagerProps> = React.createElement(
       ExtensionManager,
       {
         webPartContext: this.context
