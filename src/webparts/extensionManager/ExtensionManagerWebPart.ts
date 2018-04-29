@@ -1,5 +1,5 @@
 /**
- * ExtensionManagerWebPart
+ * Renders a web part that calls the extension manager component
  */
 import { Version } from "@microsoft/sp-core-library";
 import {
@@ -11,10 +11,10 @@ import * as strings from "ExtensionManagerWebPartStrings";
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { ExtensionManager } from "./components/ExtensionManager";
-import { IExtensionManagerProps } from "./components/IExtensionManager.types";
+import { IExtensionManagerProps } from "./components/ExtensionManager.types";
 
 export interface IExtensionManagerWebPartProps {
-  description: string;
+  // empty
 }
 
 export default class ExtensionManagerWebPart extends BaseClientSideWebPart<IExtensionManagerWebPartProps> {
@@ -32,27 +32,5 @@ export default class ExtensionManagerWebPart extends BaseClientSideWebPart<IExte
 
   protected get dataVersion(): Version {
     return Version.parse("1.0");
-  }
-
-  protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return {
-      pages: [
-        {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
-          groups: [
-            {
-              groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField("description", {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
-            }
-          ]
-        }
-      ]
-    };
   }
 }

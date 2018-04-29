@@ -22,6 +22,7 @@
     "react": "15.6.2",
     "react-dom": "15.6.2",
     "react-json-view": "^1.16.1",
+    "react-key-handler": "^1.0.1",
     "tslint-microsoft-contrib": "^5.0.3"
   },
   "devDependencies": {

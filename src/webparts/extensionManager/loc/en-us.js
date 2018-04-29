@@ -24,10 +24,15 @@ define([], function() {
     "ContextMenuLocation": "Context Menu",
     "ListViewLocation": "Command Bar/Context Menu",
     "ECBLocation": "Edit Control Block",
-    "NewButton": "New",
-    "DeleteButton": "Delete",
+    "NewButton": "Add",
+    "DeleteButton": "Remove",
     "UploadButton": "Upload",
     "InfoButton": "Open the details pane",
     "EditButton": "Edit",
+    "GroupByMenu": "Group by {0}",
+    "AscendingSort": "A to Z",
+    "DescendingSort": "Z to A",
+    "DeleteDialogTitle": "Remove?",
+    "DeleteDialogDescription": "Are you sure you want to remove the extension(s)? The solutions containing the extensions will not be removed."
   }
 });

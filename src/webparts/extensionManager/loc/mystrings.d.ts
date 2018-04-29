@@ -32,6 +32,11 @@ declare interface IExtensionManagerWebPartStrings {
   UploadButton: string;
   InfoButton: string;
   EditButton: string;
+  GroupByMenu: string;
+  AscendingSort: string;
+  DescendingSort: string;
+  DeleteDialogTitle: string;
+  DeleteDialogDescription: string;
 }
 
 declare module "ExtensionManagerWebPartStrings" {
