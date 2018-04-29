@@ -210,7 +210,7 @@ export class ExtensionManager extends React.Component<IExtensionManagerProps, IE
         onDismiss={this.onDismissPane}
       />;
 
-      const deleteDialog: JSX.Element = this.renderDeleteDialog();
+    const deleteDialog: JSX.Element = this.renderDeleteDialog();
     return (
       <div className={styles.extensionManager}>
         {this.state.dataLoaded &&
@@ -264,25 +264,25 @@ export class ExtensionManager extends React.Component<IExtensionManagerProps, IE
   public renderDeleteDialog(): JSX.Element {
     return (
       <Dialog
-      hidden={ this.state.hideDeleteDialog }
-      onDismiss={this.closeDeleteDialog }
-      dialogContentProps={ {
-        type: DialogType.normal,
-        title: strings.DeleteDialogTitle,
-        subText: strings.DeleteDialogDescription
-      } }
-      modalProps={ {
-        titleAriaId: "myLabelId",
-        subtitleAriaId: "mySubTextId",
-        isBlocking: false,
-        containerClassName: "ms-dialogMainOverride"
-      } }
-    >
-      <DialogFooter>
-        <PrimaryButton onClick={ this.closeDeleteDialog } text="Remove" />
-        <DefaultButton onClick={ this.closeDeleteDialog } text="Cancel" />
-      </DialogFooter>
-    </Dialog>
+        hidden={this.state.hideDeleteDialog}
+        onDismiss={this.closeDeleteDialog}
+        dialogContentProps={{
+          type: DialogType.normal,
+          title: strings.DeleteDialogTitle,
+          subText: strings.DeleteDialogDescription
+        }}
+        modalProps={{
+          titleAriaId: "myLabelId",
+          subtitleAriaId: "mySubTextId",
+          isBlocking: false,
+          containerClassName: "ms-dialogMainOverride"
+        }}
+      >
+        <DialogFooter>
+          <PrimaryButton onClick={this.closeDeleteDialog} text="Remove" />
+          <DefaultButton onClick={this.closeDeleteDialog} text="Cancel" />
+        </DialogFooter>
+      </Dialog>
 
     );
 
