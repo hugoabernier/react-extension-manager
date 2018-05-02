@@ -4,10 +4,7 @@
 import { Version } from "@microsoft/sp-core-library";
 import {
   BaseClientSideWebPart,
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
 } from "@microsoft/sp-webpart-base";
-import * as strings from "ExtensionManagerWebPartStrings";
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import { ExtensionManager } from "./components/ExtensionManager";

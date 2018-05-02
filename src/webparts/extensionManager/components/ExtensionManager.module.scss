@@ -1,5 +1,19 @@
 @import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 
 .extensionManager {
-  color: inherit;
+  color:inherit;
 }
+
+.spinner {
+  padding-top:20px;
+}
+
+.extensionsDetailsList {
+  padding-top:20px;
+}
+
+html[dir=ltr] .isFlipped {
+  :global(.ms-CommandBarItem-icon) {
+    float: right;
+  }
+}  

@@ -13,7 +13,10 @@
   "lintConfig": {
     // Opt-in to Lint rules which help to eliminate bugs in JavaScript
     "rules": {
-      "array-type": [true, "array"],
+      "array-type": [
+        true,
+        "array"
+      ],
       "arrow-return-shorthand": false,
       "await-promise": false,
       "adjacent-overload-signatures": false,
@@ -26,9 +29,9 @@
       "chai-prefer-contains-to-index-of": true,
       "chai-vague-errors": true,
       "class-name": true,
-      "comment-format": [
-        false
-      ],
+      // "comment-format": [
+      //   false
+      // ],
       "completed-docs": [
         false
       ],
@@ -37,12 +40,12 @@
         false
       ],
       "eofline": false,
-      "export-name": true,
+      // "export-name": true,
       "file-header": [
         false
       ],
       "forin": true,
-      "function-name": true,
+      //"function-name": true,
       "import-blacklist": false,
       "import-name": false, // changed from Microsoft's rules
       "import-spacing": true,
@@ -51,7 +54,7 @@
         "spaces"
       ],
       "insecure-random": true,
-      "interface-name": false,
+      // "interface-name": false,
       "interface-over-type-literal": false,
       "jquery-deferred-must-complete": true,
       "jsdoc-format": false,
@@ -75,11 +78,11 @@
         140
       ],
       "member-access": true,
-      "member-ordering": [
-        false
-      ],
+      // "member-ordering": [
+      //   false
+      // ],
       "missing-jsdoc": true,
-      "missing-optional-annotation": false,
+      // "missing-optional-annotation": false,
       "mocha-avoid-only": true,
       "mocha-no-side-effect-code": true,
       "mocha-unneeded-done": true,
@@ -95,15 +98,15 @@
       "no-consecutive-blank-lines": [
         true
       ],
-      "no-console": [
-        true,
-        "debug",
-        "info",
-        "log",
-        "time",
-        "timeEnd",
-        "trace"
-      ],
+      // "no-console": [
+      //   true,
+      //   "debug",
+      //   "info",
+      //   "log",
+      //   "time",
+      //   "timeEnd",
+      //   "trace"
+      // ],
       "no-constant-condition": true,
       "no-construct": true,
       "no-control-regex": true,
@@ -115,7 +118,7 @@
       "no-document-domain": true,
       "no-document-write": true,
       "no-duplicate-case": false,
-      "no-duplicate-parameter-names": false,
+      // "no-duplicate-parameter-names": false,
       "no-duplicate-super": true,
       "no-duplicate-variable": true,
       "no-empty": true,
@@ -139,7 +142,7 @@
       "no-inferrable-types": false,
       "no-inferred-empty-object-type": false,
       "no-inner-html": true,
-      "no-internal-module": false,
+      // "no-internal-module": false,
       "no-invalid-regexp": true,
       "no-invalid-template-strings": true,
       "no-invalid-this": true,
@@ -148,7 +151,9 @@
       "no-mergeable-namespace": false,
       "no-missing-visibility-modifiers": false,
       "no-misused-new": true,
-      "no-multiline-string": [ true ],
+      "no-multiline-string": [
+        true
+      ],
       "no-multiple-var-decl": false,
       "no-namespace": false,
       "no-null-keyword": false,
@@ -197,16 +202,13 @@
         "as-needed"
       ],
       "object-literal-shorthand": false,
-      "object-literal-sort-keys": false,
-      "one-line": [
-        true,
-        "check-open-brace",
-        "check-catch",
-        "check-else",
-        "check-whitespace"
-      ],
+      // "object-literal-sort-keys": false,
       "one-variable-per-declaration": true,
-      "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+      "only-arrow-functions": [
+        true,
+        "allow-declarations",
+        "allow-named-functions"
+      ],
       "ordered-imports": [
         false
       ],
@@ -221,8 +223,8 @@
       "strict-type-predicates": false,
       "promise-function-async": false,
       "promise-must-complete": true,
-      "quotemark": [true, "double", "jsx-double"], //Changed from Microsoft's rule
-      "radix": false,
+      // "quotemark": [true, "double", "jsx-double"], //Changed from Microsoft's rule
+      //"radix": false,
       "react-a11y-anchors": true,
       "react-a11y-aria-unsupported-elements": true,
       "react-a11y-event-has-role": true,
@@ -244,40 +246,40 @@
       "react-tsx-curly-spacing": false,
       "react-unused-props-and-state": true,
       "restrict-plus-operands": false,
-      "semicolon": [
-        true,
-        "ignore-bound-class-methods"
-      ],
+      // "semicolon": [
+      //   true,
+      //   "ignore-bound-class-methods"
+      // ],
       "space-before-function-paren": false,
       "strict-boolean-expressions": false,
       "switch-default": false,
-      "trailing-comma": [
-        true,
-        {
-          "singleline": "never",
-          "multiline": "never"
-        }
-      ],
+      // "trailing-comma": [
+      //   true,
+      //   {
+      //     "singleline": "never",
+      //     "multiline": "never"
+      //   }
+      // ],
       "triple-equals": [
         true,
         "allow-null-check"
       ],
-      "typedef": [
-        true,
-        "parameter",
-        "property-declaration",
-        "member-variable-declaration"
-      ],
-      "typedef-whitespace": [
-        false
-      ],
+      // "typedef": [
+      //   true,
+      //   "parameter",
+      //   "property-declaration",
+      //   "member-variable-declaration"
+      // ],
+      // "typedef-whitespace": [
+      //   false
+      // ],
       "typeof-compare": false,
       "underscore-consistent-invocation": true,
       "unified-signatures": true,
       "use-isnan": true,
       "use-named-parameter": true,
       "valid-typeof": false,
-      "variable-name": true,
+      // "variable-name": true,
       "whitespace": [
         true,
         "check-branch",
@@ -287,21 +289,21 @@
         "check-type"
       ],
       "no-useless-files": true,
-      "ban-comma-operator": true,
+      // "ban-comma-operator": true,
       "binary-expression-operand-order": false,
       "deprecation": false,
       "encoding": true,
       "no-duplicate-imports": true,
-      "no-duplicate-switch-case": true,
-      "no-implicit-dependencies": true,
+      // "no-duplicate-switch-case": true,
+      // "no-implicit-dependencies": true,
       "no-irregular-whitespace": true,
       "no-object-literal-type-assertion": true,
       "no-parameter-reassignment": false,
-      "no-redundant-jsdoc": true,
-      "no-return-await": true,
+      // "no-redundant-jsdoc": true,
+      // "no-return-await": true,
       "no-submodule-imports": true,
       "no-this-assignment": true,
-      "no-unnecessary-class": true,
+      // "no-unnecessary-class": true,
       "no-unnecessary-type-assertion": false,
       "number-literal-format": true,
       "prefer-conditional-expression": false,
@@ -311,8 +313,138 @@
       "switch-final-break": true,
       "type-literal-delimiter": false,
       "use-default-type-parameter": false,
-      "fix-no-var-keyword": true,
-      "fix-no-require-imports": true
+      // "fix-no-var-keyword": true,
+      // "fix-no-require-imports": true,
+      // office ui fabric tslint
+      "function-name": [
+        true,
+        {
+          "method-regex": "^[a-z][\\w\\d]+$",
+          "private-method-regex": "^_[a-z][\\w\\d]+$",
+          "protected-method-regex": "^[_]?[a-z][\\w\\d]+$",
+          "static-method-regex": "^[a-z][\\w\\d]+$",
+          "function-regex": "^[_]?[a-z][\\w\\d]+$"
+        }
+      ],
+      // "jsx-curly-spacing": {
+      //   "when": "always"
+      // },
+      // "jsx-no-bind": true,
+      "jsx-boolean-value": [
+        "never"
+      ],
+      // "jsx-equals-spacing": "never",
+      // "jsx-key": true,
+      // "jsx-no-lambda": true,
+      // "jsx-self-close": true,
+      // "jsx-wrap-multiline": true,
+      "jsx-no-multiline-js": false,
+      // "jsx-no-string-ref": true,
+      // "jsx-ban-props": [
+      //   true,
+      //   [
+      //     "style",
+      //     "Use className and provide css rules instead of using inline styles."
+      //   ]
+      // ],
+      "radix": true,
+      "typedef": [
+        true,
+        "call-signature",
+        "parameter",
+        "arrow-parameter",
+        "property-declaration"
+      ],
+      "quotemark": [
+        true,
+        "double",
+        "jsx-double"
+      ],
+      // "no-inferrable-types": [
+      //   true,
+
+      //   "ignore-params"
+      // ],
+      "export-name": false,
+      "trailing-comma": [
+        false
+      ],
+      // "whitespace": [
+      //   false
+      // ],
+      "variable-name": [
+        true,
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case",
+        "ban-keywords"
+      ],
+      "comment-format": [
+        true,
+        "check-space"
+      ],
+      "interface-name": [
+        true,
+        "always-prefix"
+      ],
+      "member-ordering": [
+        true,
+        {
+          "order": [
+            "public-static-field",
+            "protected-static-field",
+            "private-static-field",
+            "public-instance-field",
+            "protected-instance-field",
+            "private-instance-field",
+            "public-static-method",
+            "protected-static-method",
+            "private-static-method",
+            "public-constructor",
+            "public-instance-method",
+            "protected-constructor",
+            "protected-instance-method",
+            "private-constructor",
+            "private-instance-method"
+          ]
+        }
+      ],
+      "missing-optional-annotation": true,
+      // "no-any": true,
+      "no-console": [
+        true,
+        "debug",
+        "info",
+        "time",
+        "timeEnd",
+        "trace"
+      ],
+      "no-duplicate-parameter-names": true,
+      "no-internal-module": true,
+      // "no-unused-expression": false,
+      "no-unused-variable": true,
+      "object-literal-sort-keys": false,
+      "one-line": [
+        true,
+        "check-open-brace",
+        "check-catch",
+        "check-else",
+        "check-whitespace"
+      ],
+      "semicolon": [
+        true,
+        "always"
+      ],
+      "typedef-whitespace": [
+        true,
+        {
+          "call-signature": "nospace",
+          "index-signature": "nospace",
+          "parameter": "nospace",
+          "property-declaration": "nospace",
+          "variable-declaration": "nospace"
+        }
+      ],
     }
   }
 }

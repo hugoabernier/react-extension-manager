@@ -2,7 +2,6 @@
  * ExtensionService
  */
 import {
-    ISPHttpClientOptions,
     SPHttpClient,
     SPHttpClientResponse
 } from "@microsoft/sp-http";

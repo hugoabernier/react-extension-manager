@@ -26,10 +26,13 @@ declare interface IExtensionManagerWebPartStrings {
   ContextMenuLocation: string;
   ListViewLocation: string;
   ECBLocation: string;
-  NewButton: strings;
+  NewButton: string;
+  NewButtonAriaLabel: string;
   EditButton: string;
+  EditButtonLabel: string;
   DeleteButton: string;
   UploadButton: string;
+  UploadButtonAriaLabel: string;
   InfoButton: string;
   EditButton: string;
   GroupByMenu: string;
@@ -37,6 +40,13 @@ declare interface IExtensionManagerWebPartStrings {
   DescendingSort: string;
   DeleteDialogTitle: string;
   DeleteDialogDescription: string;
+  ClearSelectionButton: string;
+  ClearSelectionButtonTitle: string;
+  ClearSelectionButtonAriaLabel: string;
+  SaveButton: string;
+  SaveButtonAriaLabel: string;
+  CancelButton: string;
+  CancelButtonAriaLabel: string;
 }
 
 declare module "ExtensionManagerWebPartStrings" {

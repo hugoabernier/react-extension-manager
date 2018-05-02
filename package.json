@@ -19,10 +19,12 @@
     "@types/react": "15.6.6",
     "@types/react-dom": "15.5.6",
     "@types/webpack-env": ">=1.12.1 <1.14.0",
+    "brace": "^0.11.1",
     "react": "15.6.2",
+    "react-ace": "^6.1.0",
     "react-dom": "15.6.2",
-    "react-json-view": "^1.16.1",
     "react-key-handler": "^1.0.1",
+    "tslint": "^5.9.1",
     "tslint-microsoft-contrib": "^5.0.3"
   },
   "devDependencies": {

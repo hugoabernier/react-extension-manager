@@ -1,12 +1,12 @@
 {
-  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
-  "solution": {
-    "name": "react-extension-manager-client-side-solution",
-    "id": "d561d0f5-463c-4e0d-ab1a-a22da58e88c7",
-    "version": "1.0.0.0",
-    "includeClientSideAssets": true
-  },
-  "paths": {
-    "zippedPackage": "solution/react-extension-manager.sppkg"
-  }
+    "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+    "solution": {
+        "name": "react-extension-manager-client-side-solution",
+        "id": "d561d0f5-463c-4e0d-ab1a-a22da58e88c7",
+        "version": "0.0.1.0",
+        "includeClientSideAssets": true
+    },
+    "paths": {
+        "zippedPackage": "solution/react-extension-manager.sppkg"
+    }
 }

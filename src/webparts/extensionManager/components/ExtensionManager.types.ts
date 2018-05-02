@@ -3,14 +3,13 @@
  */
 import { IWebPartContext } from "@microsoft/sp-webpart-base";
 import { IUserCustomAction } from "../services";
-import { IColumn, IContextualMenuProps, IGroup } from "office-ui-fabric-react";
+import { IColumn, IContextualMenuProps } from "office-ui-fabric-react";
 
 export interface IExtensionManagerProps {
   webPartContext: IWebPartContext;
 }
 
 export interface IExtensionManagerState {
-  dataLoaded: boolean;
   selection?: IUserCustomAction[];
   sortedItems: IUserCustomAction[];
   columns: IColumn[];
